@@ -16,9 +16,16 @@
 
 package org.videoplaza;
 
+import org.videoplaza.helper.JsonToCustomers;
+
 /**
  * @version $Id:$
  */
 public class BookingsIT {
+
+	public static void main(String args[]){
+		JsonToCustomers jtc = new JsonToCustomers();
+		jtc.convertJsonToCustomer();
+	}
 
 }

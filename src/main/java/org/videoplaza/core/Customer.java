@@ -26,4 +26,5 @@ public class Customer {
    public int getRevenue() { return revenue; }
 
    public void setRevenue(int revenue) { this.revenue = revenue; }
+
 }

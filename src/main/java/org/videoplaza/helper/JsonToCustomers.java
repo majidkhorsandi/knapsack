@@ -34,18 +34,23 @@ public class JsonToCustomers {
 
 	public JsonToCustomers() {}
 
-	public void convertJsonToCustomer() {
-	try {
+	public Customer[] convertJsonToCustomer() {
+		Customer[] customers = new Customer[0];
+		try {
 			// Convert JSON string from file to Object
-			Customer[] customers = mapper.readValue(new File("src/main/java/org/videoplaza/resources/customers1.json"), Customer[].class);
+			customers = mapper.readValue(new File("src/main/java/org/videoplaza/resources/customers1.json"), Customer[].class);
 			System.out.println(customers);
 			//Pretty print
 			String theCustomer = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(customers);
 			System.out.println(theCustomer);
+			return customers;
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
+			return customers;
 		} catch (IOException e) {
 			e.printStackTrace();
+			return customers;
 		}
 	}
+
 }

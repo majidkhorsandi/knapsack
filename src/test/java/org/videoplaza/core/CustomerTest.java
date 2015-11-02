@@ -12,7 +12,7 @@ import org.videoplaza.core.Customer;
 /**
  * @version $Id:$
  */
-public class CustomerTest  extends BaseTest{
+public class CustomerTest {
 	private static final String CUSTOMER_NAME = "testCustomer";
 	private static final int CUSTOMER_REVENUE = 100;
 	private static final int CUSTOMER_NEW_REVENUE = 200;

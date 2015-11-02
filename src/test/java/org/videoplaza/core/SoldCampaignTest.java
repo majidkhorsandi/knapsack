@@ -9,7 +9,7 @@ import org.videoplaza.core.SoldCampaign;
 /**
  * Created by majid on 29/10/15.
  */
-public class SoldCampaignTest extends BaseTest{
+public class SoldCampaignTest {
 
     private static final String CUSTOMER_NAME = "test customer";
     private static final String NEW_CUSTOMER_NAME = "new test customer";

@@ -1,0 +1,42 @@
+<suite name="OoyalaTestSuite">
+    <test name="CustomersTest">
+        <classes>
+            <class name="org.videoplaza.core.CustomersTest" />
+        </classes>
+    </test>
+
+    <test name="CustomerTest">
+        <classes>
+            <class name="org.videoplaza.core.CustomerTest" />
+        </classes>
+    </test>
+
+    <test name="SoldCampaignTest">
+        <classes>
+            <class name="org.videoplaza.core.SoldCampaignTest" />
+        </classes>
+    </test>
+
+    <test name="RandomCustomerGeneratorTest">
+        <classes>
+            <class name="org.videoplaza.utils.RandomCustomerGeneratorTest" />
+        </classes>
+    </test>
+
+    <test name="RandomStringGeneratorTest">
+        <classes>
+            <class name="org.videoplaza.utils.RandomStringGeneratorTest" />
+        </classes>
+    </test>
+
+    <test name="BookingsTest">
+        <parameter name="inventory" value="5000000" ></parameter>
+        <parameter name="numberOfCustomers" value="5" ></parameter>
+        <parameter name="maxImpressions" value="5000000"></parameter>
+        <parameter name="maxRevenue" value="5000000"></parameter>
+        <classes>
+            <class name="org.videoplaza.core.BookingsTest" />
+        </classes>
+    </test>
+
+</suite>

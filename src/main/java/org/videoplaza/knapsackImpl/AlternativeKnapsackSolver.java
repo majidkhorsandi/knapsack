@@ -13,44 +13,24 @@ public class AlternativeKnapsackSolver {
     public AlternativeKnapsackSolver(Customers customers, int maxImpressions) {
         this.totalImpressions = maxImpressions;
         this.customers = customers;
-
-            /*
-             Create solver with data
-             */
-            Solver knapsackSolver = new Solver(getCustomers(), getTotalImpressions());
-
-            /*
-             First impose ordering of items in order of their best ratio
-             impression/value.
-             Then apply dominance relation
-             */
-            knapsackSolver.applyPriorityCustomers();
-            knapsackSolver.applyDominance();
-
-            /*
-             Generate the solution with dynamic programming and optimizations
-             */
-            knapsackSolver.generateSolution();
-
-            /*
-             Obtain the solution through backpointers of the elements
-             */
-            solution = knapsackSolver.obtainKnapsack();
+        Solver knapsackSolver = new Solver(getCustomers(), getTotalImpressions());
+        knapsackSolver.applyPriorityCustomers();
+        knapsackSolver.applyDominance();
+        knapsackSolver.generateSolution();
+        solution = knapsackSolver.obtainKnapsack();
     }
 
     /**
-     * Getter of the target impressions we are looking the solution to
-     *
-     * @return number of total impressions for the month
+     * Returns maximum available impressions
+     * @return number of total impressions
      */
     public int getTotalImpressions() {
         return totalImpressions;
     }
 
     /**
-     * Getter of the campaigns obtained from the file and need to be scheduled
-     *
-     * @return list of campaigns for this month
+     * Returns list of customer campaigns
+     * @return list of customers
      */
     public Customers getCustomers() {
         return customers;
@@ -60,6 +40,10 @@ public class AlternativeKnapsackSolver {
         return this.solution;
     }
 
+    /**
+     * Returns size of the final solution, i.e number of impressions.
+     * @return
+     */
     public int getSolutionSize() {
         int solutionSize = 0;
         for (Map.Entry<Customer,Integer> campaign : solution.getCampaigns().entrySet()){

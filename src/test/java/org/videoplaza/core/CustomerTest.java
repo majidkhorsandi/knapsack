@@ -1,6 +1,6 @@
 
 
-package org.videoplaza.core.core;
+package org.videoplaza.core;
 
 
 import org.testng.Assert;

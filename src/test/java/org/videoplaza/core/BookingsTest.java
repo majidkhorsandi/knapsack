@@ -14,7 +14,7 @@
  * from Nordnet Bank AB.
  *************************************************************************/
 
-package org.videoplaza.core.core;
+package org.videoplaza.core;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,39 +40,36 @@ import java.util.*;
 /**
  * @version $Id:$
  */
-public class BookingsTest {
+public class BookingsTest extends BaseTest {
 	private static final int INVENTORY = 50000000;
 	private static final int NUMBER_OF_RANDOM_CUSTOMERS = 5;
 	private static final Logger logger = LoggerFactory.getLogger(BookingsTest.class);
 
-	private static final String PATH_TO_RESOURCE = "src/main/java/org/videoplaza/resources/";
-
 	@Test
 	public final void testKnapSack() {
 		Customers testCustomers = new  Customers();
-		List<Customer> customersList = new RandomCustomerGenerator(6000, 6500).
+		List<Customer> customersList = new RandomCustomerGenerator(6000000, 50).
 				generateMultipleRandomCustomers(NUMBER_OF_RANDOM_CUSTOMERS);
-		testCustomers.setCustomers(new JsonToCustomers().convertJsonToCustomerList(PATH_TO_RESOURCE + "customers2.json"));
-		//testCustomers.setCustomers(customersList);
+		testCustomers.setCustomers(customersList);
+		logger.info("List of random customers generated:");
 		for (Customer customer: customersList){
 			logger.info(customer.getName());
 			logger.info(Integer.toString(customer.getImpressions()));
 			logger.info(Integer.toString(customer.getRevenue()));
 			logger.info("=========================");
 		}
-		//AlternativeKnapsackSolver altKnapsack = new AlternativeKnapsackSolver(testCustomers, INVENTORY);
-		//Bookings testBookings = new Bookings(testCustomers, INVENTORY);
-		//Knapsack alternativeSolution = altKnapsack.getOptimizedKnapsack();
+		AlternativeKnapsackSolver altKnapsack = new AlternativeKnapsackSolver(testCustomers, INVENTORY);
+		Bookings testBookings = new Bookings(testCustomers, INVENTORY);
+		Knapsack alternativeSolution = altKnapsack.getOptimizedKnapsack();
 
-		//Assert.assertEquals(testBookings.getRevenue(), alternativeSolution.getValueOfSolution());
-		//Assert.assertEquals(testBookings.getInventory(), altKnapsack.getSolutionSize());
-		//for (Map.Entry<Customer,Integer> campaign : alternativeSolution.getCampaigns().entrySet()){
-		//	logger.info(campaign.getKey().getName() + " : " + campaign.getValue().toString());
-		//}
-		//logger.info("===================================");
-		//for (SoldCampaign sold : testBookings.getSoldCampaigns()) {
-		//	logger.info(sold.getCustomerName() + " : " + sold.getSold());
-		//}
+		Assert.assertEquals(testBookings.getRevenue(), alternativeSolution.getValueOfSolution());
+		for (Map.Entry<Customer,Integer> campaign : alternativeSolution.getCampaigns().entrySet()){
+			logger.info(campaign.getKey().getName() + " : " + campaign.getValue().toString());
+		}
+		logger.info("===================================");
+		for (SoldCampaign sold : testBookings.getSoldCampaigns()) {
+			logger.info(sold.getCustomerName() + " : " + sold.getSold());
+		}
 	}
 
 }

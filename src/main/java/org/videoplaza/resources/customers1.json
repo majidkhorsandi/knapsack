@@ -1,25 +1,27 @@
-[{
-	"name":"CustomerA",
-	"impressions":15677336,
-	"revenue":7838
-},
-{
-"name":"CustomerB",
-"impressions":15433478,
-"revenue":151
-},
-{
-"name":"CustomerC",
-"impressions":3725596,
-"revenue":8223
-},
-  {
-	"name":"CustomerD",
-	"impressions":42345587,
-	"revenue":7685
-  },
-  {
-	"name":"CustomerE",
-	"impressions":20462920,
-	"revenue":5337
-  }]
+[
+		{
+			"name":"CustomerA",
+			"impressions":3258035,
+			"revenue":26
+		},
+		{
+			"name":"CustomerB",
+			"impressions":4788954,
+			"revenue":29
+		},
+		{
+			"name":"CustomerC",
+			"impressions":5975402,
+			"revenue":2
+		},
+		{
+			"name":"CustomerD",
+			"impressions":4603949,
+			"revenue":23
+		},
+		{
+			"name":"CustomerE",
+			"impressions":377169,
+			"revenue":3
+		}
+	]

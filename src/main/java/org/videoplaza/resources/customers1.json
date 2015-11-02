@@ -1,15 +1,25 @@
 [{
 	"name":"CustomerA",
-	"impressions":10000,
-	"revenue":100
+	"impressions":15677336,
+	"revenue":7838
 },
 {
 "name":"CustomerB",
-"impressions":5000,
-"revenue":60
+"impressions":15433478,
+"revenue":151
 },
 {
 "name":"CustomerC",
-"impressions":2000,
-"revenue":20
-}]
+"impressions":3725596,
+"revenue":8223
+},
+  {
+	"name":"CustomerD",
+	"impressions":42345587,
+	"revenue":7685
+  },
+  {
+	"name":"CustomerE",
+	"impressions":20462920,
+	"revenue":5337
+  }]

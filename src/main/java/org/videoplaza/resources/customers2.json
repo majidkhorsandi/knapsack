@@ -1,0 +1,26 @@
+[{
+	"name":"CustomerA",
+	"impressions":1,
+	"revenue":0
+},
+{
+"name":"CustomerB",
+"impressions":2,
+"revenue":2
+},
+{
+"name":"CustomerC",
+"impressions":3,
+"revenue":2
+},
+  {
+	"name":"CustomerD",
+	"impressions":70000,
+	"revenue":71000
+  },
+  {
+	"name":"CustomerE",
+	"impressions":49000000,
+	"revenue":50000000
+  }
+]

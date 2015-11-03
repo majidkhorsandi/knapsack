@@ -1,19 +1,3 @@
-/*************************************************************************
- *
- * NORDNET CONFIDENTIAL
- *
- * [1996] - [2014] Nordnet Bank AB
- * All Rights Reserved.
- *
- * NOTICE:  All information contained herein is, and remains
- * the property of Nordnet Bank AB and its suppliers,
- * if any.  The intellectual and technical concepts contained
- * herein are proprietary to Nordnet Bank AB.
- * Dissemination of this information or reproduction of this material
- * is strictly forbidden unless prior written permission is obtained
- * from Nordnet Bank AB.
- *************************************************************************/
-
 package org.videoplaza.core;
 
 import org.slf4j.Logger;
@@ -21,8 +5,10 @@ import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+import org.testng.annotations.Optional;
 import org.videoplaza.knapsackImpl.AlternativeKnapsackSolver;
 import org.videoplaza.knapsackImpl.Knapsack;
+import org.videoplaza.utils.JsonToCustomers;
 import org.videoplaza.utils.RandomCustomerGenerator;
 
 
@@ -32,15 +18,26 @@ import java.util.*;
  * @version $Id:$
  */
 public class BookingsTest {
+	private static final String PATH_TO_RESOURCES = "src/main/java/org/videoplaza/resources/";
 	private static final Logger logger = LoggerFactory.getLogger(BookingsTest.class);
 
-	@Parameters({"inventory", "numberOfCustomers", "maxImpressions", "maxRevenue"})
+	@Parameters({"inventory", "numberOfCustomers", "maxImpressions", "maxRevenue", "customerFile"})
 	@Test
-	public final void testKnapSack(int inventory, int numberOfCustomers, int maxImpressions, int maxRevenue) {
+	public final void testKnapSack(int inventory, int numberOfCustomers, int maxImpressions, int maxRevenue, @Optional() String customerFile) {
 		logger.info("==========  Testing knapsack algorithm used in the web service using another implementation of knapsack ==========");
 		Customers testCustomers = new  Customers();
-		List<Customer> customersList = new RandomCustomerGenerator(maxImpressions, maxRevenue).
-				generateRandomCustomersList(numberOfCustomers);
+		List<Customer> customersList;
+		// check if we should read customers from file or generate them randomly.
+		if (customerFile == null) {
+			 logger.info("No json file found, generating random customers");
+			 customersList = new RandomCustomerGenerator(maxImpressions, maxRevenue).
+					generateRandomCustomersList(numberOfCustomers);
+		}
+		else {
+			logger.info("generating customers from the json file: " + customerFile);
+			customersList = new JsonToCustomers().convertJsonToCustomerList(PATH_TO_RESOURCES + customerFile + ".json");
+		}
+
 		testCustomers.setCustomers(customersList);
 		logger.info("List of random customers generated:");
 		for (Customer customer: customersList){

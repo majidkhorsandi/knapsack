@@ -1,4 +1,4 @@
-<suite name="OoyalaTestSuite">
+<suite name="OoyalaTestSuite" verbose="2" preserve-order="true">
     <test name="CustomersTest">
         <classes>
             <class name="org.videoplaza.core.CustomersTest" />
@@ -31,9 +31,10 @@
 
     <test name="BookingsTest">
         <parameter name="inventory" value="5000000" ></parameter>
-        <parameter name="numberOfCustomers" value="5" ></parameter>
+        <parameter name="numberOfCustomers" value="6" ></parameter>
         <parameter name="maxImpressions" value="5000000"></parameter>
         <parameter name="maxRevenue" value="5000000"></parameter>
+		<parameter name="customerFile" value="customers2"></parameter>
         <classes>
             <class name="org.videoplaza.core.BookingsTest" />
         </classes>

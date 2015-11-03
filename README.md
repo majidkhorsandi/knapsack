@@ -3,6 +3,7 @@ This is a test project to test an implementation of knapsack algorithm developed
 
 #Test Strategy
 The project under test is a webservice written in Java. The test strategy is based on the levels of testing:
+
 ##1- Unit tests:
 Project was lacking any unit tests, so first step was to implement unit tests for public methods of classes. Unit tests are implemented for all classes except Bookings. 
 ##2- Function tests (testing knapsack algorithm):

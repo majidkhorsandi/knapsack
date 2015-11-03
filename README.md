@@ -26,9 +26,11 @@ So if one needs to run the test with different parameters it's just to edit this
 
 ##3- Load and performance tests
 Its always good to test a web-service for performance, robustness and stability. In this case performance of service can be affected in several ways, e.g by providing it with a very big input which, by providing it with a normal input but by multiple clients at the same time or a combination, etc. Based on this a few tests are created using SoapUI tool:
-  ###3-1 Performance test
+
+###3-1 Performance test
   Putting service under a medium pressure with relatively low number of threads giving a normal input to the service. In this scenario, depending on the system we are running on we can expect a response time under a certain limit and also no crash or instability from the service.
-  ###3-2 Robustness test
+  
+###3-2 Robustness test
   Putting service under a very high pressure within a short time (a burst time) expecting it not to crash.
 
 Other types of tests could also be performed for example a stability test that puts the service under a relatively high pressure for a longer period of time and keeping an eye on the memory leaks, crashes, etc...
@@ -49,15 +51,15 @@ The potential bugs found under testing were found with exploratory testing
 
 ### 1-1 Application crashes due to insufficient memory when too big inventory is given.
 
-### Manifestation
+#### Manifestation
 Application crashes.
 
 #### Frequency
 Always if the same input is given
 #### How to reproduce
 Use following input:
--Inventory = 500000000
--Customers
+- Inventory = 500000000
+- Customers
 
 ```
 {
@@ -84,7 +86,7 @@ Allocate enough memory for the application in case highest possible amount is en
 ###1-2 Internal server error (java.lang.NullPointerException)
 The service will return Internal server error caused by a NullPointerException in case /booking end point is called without an inventory e.g : http://the-service/booking
 
-### Manifestation
+#### Manifestation
 Internal server error coming form _NullPointerException_ but application does not crash
 
 #### Frequency
@@ -115,7 +117,7 @@ Check for null inventory
 ###1-3 Internal server error (NegativeArraySizeException)
 Service will return internal server error if a negative inventory is given
 
-### Manifestation
+#### Manifestation
 Internal server error coming form NegativeArraySizeException but application does not crash.
 
 #### Frequency
@@ -145,7 +147,7 @@ Add a check to make sure inventory is always > 0;
 ###1-4 Internal server error (_ArrayIndexOutOfBoundsException_)
 Service will return internal server error if a customer with negative impression is given.
 
-### Manifestation
+#### Manifestation
 Internal server error coming form _ArrayIndexOutOfBoundsException_ but application does not crash.
 
 #### Frequency

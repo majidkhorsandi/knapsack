@@ -39,7 +39,7 @@ public class BookingsTest {
 		}
 
 		testCustomers.setCustomers(customersList);
-		logger.info("List of random customers generated:");
+		logger.info("List customers generated:");
 		for (Customer customer: customersList){
 			logger.info(customer.getName());
 			logger.info(Integer.toString(customer.getImpressions()));
@@ -57,7 +57,6 @@ public class BookingsTest {
 		logger.info("=================================================");
 		logger.info("total revenue by algorithm under test: " + testBookings.getRevenue());
 		logger.info("total revenue by alternative algorithm: " + alternativeSolution.getValueOfSolution());
-		Assert.assertEquals(testBookings.getRevenue(), alternativeSolution.getValueOfSolution());
 		logger.info("List of sold campaigns by algorithm under test: ");
 		for (SoldCampaign sold : testBookings.getSoldCampaigns()) {
 			logger.info(sold.getCustomerName() + " : " + sold.getSold());
@@ -67,6 +66,8 @@ public class BookingsTest {
 		for (Map.Entry<Customer,Integer> campaign : alternativeSolution.getCampaigns().entrySet()){
 			logger.info(campaign.getKey().getName() + " : " + campaign.getValue().toString());
 		}
+		Assert.assertEquals(testBookings.getRevenue(), alternativeSolution.getValueOfSolution());
+
 	}
 
 }

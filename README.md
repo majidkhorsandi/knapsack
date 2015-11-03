@@ -25,8 +25,11 @@ random impression between 0 and maximum, and also a random revenue between 0 and
   <parameter name="numberOfCustomers" value="6" ></parameter>
   <parameter name="maxImpressions" value="5000000"></parameter>
   <parameter name="maxRevenue" value="5000000"></parameter>
+  <parameter name="customerFile value="customers2""></parameter>
 
-So if one needs to run the test with different parameters it's just to edit this file.
+So if one needs to run the test with different parameters it's just to edit this file. The last parameter (customerFile)
+gives us the power to run tests using a given json file instead of creating random input. If this parameter is removed
+or were commented out then the test will detect the file is missing and instead generates random test data.
 
 ##3- Load and performance tests
 Its always good to test a web-service for performance, robustness and stability. In this case performance of service can
@@ -49,7 +52,8 @@ Last but not least the important exploratory testing. This part is done by testi
  2- Test with a non-numeric x
  3- Test with a negative x
  4- Test with an empty x
-
+ 5- Test with a rather big input (300 customers)
+ 6- Test with duplicated customer name
 
 # Bugs(defects) and observations
 
@@ -217,6 +221,17 @@ Expected Impressions : 49994702
 Actual   Impressions : 49897835
 
 
+#How to run
+To run unit tests and functional test maven can be used. Once under the project directory (where the pom.xml file is) run:
+mvn clean test -DsuiteXmlFile=<testSuiteFileName.xml>
+
+example:
+mvn clean test -DsuiteXmlFile=OoyalaTestSuite.xml
+
+note: to run any maven phase after the test phase, the switch "suiteXmlFile" should be used.
+
+To run load and performance tests SoapUI is needed. Once SoapUI is installed, import the project xml file under "SoapUI-Tests"
+, open test suite, test cases and run them. SoapUI's loadtestrunner.sh can also be used to run load tests.
 
 #Tools used
 TestNG (for automated tests)
@@ -225,10 +240,3 @@ PMD (to check code)
 Maven (for dependency management)
 http://beta.json-generator.com/Nyf1W_xMg (to generate random input for manual testing)
 
-
-
-Left to do:
-
-Add how to run
-improve soapUI tests
-Test a case where impression vs revenue is too small.

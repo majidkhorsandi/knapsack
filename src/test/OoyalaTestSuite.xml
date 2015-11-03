@@ -30,11 +30,11 @@
     </test>
 
     <test name="BookingsTest">
-        <parameter name="inventory" value="5000000" ></parameter>
+        <parameter name="inventory" value="12000" ></parameter>
         <parameter name="numberOfCustomers" value="6" ></parameter>
         <parameter name="maxImpressions" value="5000000"></parameter>
         <parameter name="maxRevenue" value="5000000"></parameter>
-		<parameter name="customerFile" value="customers2"></parameter>
+		<parameter name="customerFile" value="customers1"></parameter>
         <classes>
             <class name="org.videoplaza.core.BookingsTest" />
         </classes>

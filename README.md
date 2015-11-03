@@ -1,5 +1,12 @@
-# knapsack
+# About
+This is a test project to test an implementation of knapsack algorithm developed to optimize the revenue from advertisement campaigns a company can sell to customers.
 
+#Test Strategy
+The project under test is a webservice written in Java. The test strategy is based on the levels of testing:
+##1- Unit tests:
+Project was lacking any unit tests, so first step was to implement unit tests for public methods of classes. Unit tests are implemented for all classes except Bookings. 
+##2- Function tests: 
+The class that implements knapsack algorithm is called Bookings.java. This is basically the core of what this webservice does and had the highest priority from the testing prespective. The strategy used to test this class was to compare it against another implementation of knapsack algorithm. Therefore another version of knapsack was implemented and tested 
 
 # To Do:
 
@@ -50,29 +57,9 @@ http://beta.json-generator.com/Nyf1W_xMg
 
 
 
-Interesting test data:
-taxjd
-881793
-35
-=========================
-yebrr
-5094333
-12
-=========================
-byixo
-469094
-49
-=========================
-cqxkb
-1304981
-0
-=========================
-zmfck
-2793629
-14
-
 
 Another interesting test data, algorithm under test reaches the same revenue with less impressions in total:
+
 {
   "customers":[
      {

@@ -227,9 +227,9 @@ note: to run any maven phase after the test phase, the switch "suiteXmlFile" sho
 To run load and performance tests SoapUI is needed. Once SoapUI is installed, import the project xml file under *"SoapUI-Tests"*, open test suite, test cases and run them. SoapUI's loadtestrunner.sh can also be used to run load tests.
 
 #Tools used
-*TestNG (for automated tests)
-*SoapUI (for performance testing)
-*PMD (to check code)
-*Maven (for dependency management)
-*http://beta.json-generator.com/Nyf1W_xMg (to generate random input for manual testing)
+- TestNG (for automated tests)
+- SoapUI (for performance testing)
+- PMD (to check code)
+- Maven (for dependency management)
+- http://beta.json-generator.com/Nyf1W_xMg (to generate random input for manual testing)
 

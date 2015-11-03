@@ -21,12 +21,12 @@ random impression between 0 and maximum, and also a random revenue between 0 and
  needed for testing and the user of tests is able to change the parameters to run different tests with different number of
   customers, different max impression and max revenue and different available impressions. Here is how parameters look for
   BookingTest class:
-
+`
   <parameter name="inventory" value="5000000" ></parameter>
   <parameter name="numberOfCustomers" value="6" ></parameter>
   <parameter name="maxImpressions" value="5000000"></parameter>
   <parameter name="maxRevenue" value="5000000"></parameter>
-  <parameter name="customerFile value="customers2""></parameter>
+  <parameter name="customerFile value="customers2""></parameter>`
 
 So if one needs to run the test with different parameters it's just to edit this file. The last parameter (customerFile)
 gives us the power to run tests using a given json file instead of creating random input. If this parameter is removed

@@ -39,7 +39,8 @@ public class BookingsTest {
 		}
 
 		testCustomers.setCustomers(customersList);
-		logger.info("List customers generated:");
+		logger.info("List of customers:");
+		logger.info("=========================");
 		for (Customer customer: customersList){
 			logger.info(customer.getName());
 			logger.info(Integer.toString(customer.getImpressions()));
@@ -57,6 +58,7 @@ public class BookingsTest {
 		logger.info("=================================================");
 		logger.info("total revenue by algorithm under test: " + testBookings.getRevenue());
 		logger.info("total revenue by alternative algorithm: " + alternativeSolution.getValueOfSolution());
+		logger.info("=================================================");
 		logger.info("List of sold campaigns by algorithm under test: ");
 		for (SoldCampaign sold : testBookings.getSoldCampaigns()) {
 			logger.info(sold.getCustomerName() + " : " + sold.getSold());
@@ -67,7 +69,7 @@ public class BookingsTest {
 			logger.info(campaign.getKey().getName() + " : " + campaign.getValue().toString());
 		}
 		Assert.assertEquals(testBookings.getRevenue(), alternativeSolution.getValueOfSolution());
-
+		Assert.assertTrue(testBookings.getInventory() <= maxImpressions);
 	}
 
 }

@@ -223,7 +223,7 @@ Actual   Impressions : 49897835
 
 #How to run
 To run unit tests and functional test maven can be used. Once under the project directory (where the pom.xml file is) run:
-mvn clean test -DsuiteXmlFile=<testSuiteFileName.xml>
+`mvn clean test -DsuiteXmlFile=<testSuiteFileName.xml>`
 
 example:
 mvn clean test -DsuiteXmlFile=OoyalaTestSuite.xml
